@@ -6,6 +6,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "../utils/api";
 
 const Home: NextPage = () => {
+  const { data: session } = useSession();
+
   return (
     <>
       <Head>
@@ -15,6 +17,7 @@ const Home: NextPage = () => {
       </Head>
       <div>
         <button onClick={() => signIn()}>Login</button>
+        {JSON.stringify(session)}
       </div>
     </>
   );
